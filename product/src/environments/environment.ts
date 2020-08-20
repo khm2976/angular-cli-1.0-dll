@@ -1,8 +1,13 @@
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
+/**
+ * AOT 빌드를 위해 Application 내에서 파일을 참조합니다.
+ *
+ * @alias ~env
+ * @author foundy
+ * @since 2020.05.08
+ */
+import { environment as rootEnvironment } from '../../../environments/environment';
 
 export const environment = {
-  production: false
+  ...rootEnvironment,
+  // 확장 필요시 추가
 };

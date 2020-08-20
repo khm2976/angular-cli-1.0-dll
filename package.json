@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --port=4200",
     "build": "webpack",
     "serve": "node ./scripts/run-tool.js serve --interactive",
-    "build:loc": "node ./scripts/run-tool.js build --environment=loc",
+    "build:loc": "node ./scripts/run-tool.js build",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",

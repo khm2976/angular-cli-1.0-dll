@@ -160,12 +160,12 @@ program
         'ng',
         'build',
         `--app=${target}`,
-        `--environment=${options.environment}`,
+       // `--environment=${options.environment}`,
         `--base-href=/${target}/`,
       ];
 
       console.log(cmdArgs.join(' '))
-    //    runSync(cmdArgs.join(' '), { stdio: 'inherit', maxBuffer: 1024 * 5000 });
+        runSync(cmdArgs.join(' '), { stdio: 'inherit', maxBuffer: 1024 * 5000 });
     }
   });
 
