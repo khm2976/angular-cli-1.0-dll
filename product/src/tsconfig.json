@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.ext.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "babel",
+    "baseUrl": ".",
+    "types": ["node"],
+    "allowJs": true
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

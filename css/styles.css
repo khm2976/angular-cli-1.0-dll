@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------------------------------
+
+version:   1.0
+date:      02/15/17
+author:    hwangmari
+email:     hwangmari@29cm.co.kr
+
+website:
+
+version history: 1.0 - Make css for template app
+-----------------------------------------------------------------------------*/
+html,body,div,span,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,
+figure,figcaption,footer,header,
+menu,nav,output,ruby,section,summary,
+time,mark,audio,video,
+input,textarea,button,select{
+	margin: 0;
+	padding: 0;
+}
+
+ol,ul,li {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+em,address{
+	font-style:normal
+}
+
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
+	display: block;
+}
+
+a {
+  text-decoration:none
+}
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input::-ms-clear{
+	display:none;
+}
+
+.isInApp * {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.isInApp input,.isInApp select,.isInApp textarea {-webkit-user-select: auto;}
+
+body.body_overflow{overflow: hidden}
+@media screen and (min-width:541px) {
+	body.body_overflow /deep/ ruler-gnb .container{z-index:30}
+}
+
+body.body_fixed{position:fixed;width:100%}
+body.body_fixed:after{display:block;position:absolute;top:0;left:0;right:0;bottom:0;background:#000;z-index:90;content:'';}
+
+/* 레이어 스크롤시 바닥 스크롤링 방지 */
+html.layer_scrolling{overflow:hidden;position:fixed;height:100%;}
+html.layer_scrolling body{position:fixed;width:100%}
