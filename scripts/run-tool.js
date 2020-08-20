@@ -168,7 +168,36 @@ program
         runSync(cmdArgs.join(' '), { stdio: 'inherit', maxBuffer: 1024 * 5000 });
     }
   });
+program
+  .command('build-webpack [service]')
+  .action(async (service, options) => {
+    const targets = ['dll', 'product']; // vendor 분리 빌드
+    while (targets.length) {
+      ngBuild(targets.shift());
 
+      if (!options.parallel) {
+        targets.length || console.log(colors.green('All builds are complete!'));
+      }
+    }
+
+    /**
+     * 빌드를 위한 명령어 및 옵션을 설정하고 실행합니다.
+     *
+     * @param {string} target 대상 서비스
+     */
+    function ngBuild(target) {
+      let cmdArgs = ['webpack'];
+      if (target === 'dll') {
+        // vendor config 별도 설정
+        cmdArgs.push('--config ./scripts/config/webpack.dll.config.js');
+      } else {
+
+        cmdArgs.push(`--config ./${target}/webpack.config.js`);
+      }
+      console.log(cmdArgs.join(' '))
+      runSync(cmdArgs.join(' '), { stdio: 'inherit', maxBuffer: 1024 * 5000 });
+    }
+});
 program.parse(process.argv);
 
 program.args.length || program.help();

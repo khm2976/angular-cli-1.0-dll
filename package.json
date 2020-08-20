@@ -9,6 +9,7 @@
     "build": "webpack",
     "serve": "node ./scripts/run-tool.js serve --interactive",
     "build:loc": "node ./scripts/run-tool.js build",
+    "build:webpack": "node ./scripts/run-tool.js build-webpack",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
@@ -28,6 +29,7 @@
     "@angular/router": "4.0.3",
     "core-js": "^2.4.1",
     "rxjs": "5.3.0",
+    "underscore": "^1.10.2",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.11"
   },
