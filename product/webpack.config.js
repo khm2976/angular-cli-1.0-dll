@@ -22,7 +22,7 @@ const {
 } = require('@ngtools/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
-const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
+const entryPoints = ["inline", "polyfills", "sw-register", "styles", /*"vendor",*/ "main"];
 const baseHref = "";
 const deployUrl = "";
 
@@ -242,12 +242,21 @@ module.exports = {
             "name": "inline",
             "minChunks": null
         }),
-        new CommonsChunkPlugin({
+       /* new CommonsChunkPlugin({
             "name": "vendor",
             "minChunks": (module) => module.resource && module.resource.startsWith(nodeModules),
             "chunks": [
                 "main"
             ]
+        }),*/
+        new webpack.DllReferencePlugin({
+			context: path.join(process.cwd(), "dist"),
+            manifest: path.join(process.cwd(), 'dist/dll/vendor-manifest.json')
+        }),
+        new webpack.DllReferencePlugin({
+            context: path.join(process.cwd(), "dist"),
+            manifest: path.join(process.cwd(), 'dist/dll/polyfills-manifest.json'),
+            extensions: [".js", ".ts"]
         }),
         new ExtractTextPlugin({
             "filename": "[name].bundle.css",
