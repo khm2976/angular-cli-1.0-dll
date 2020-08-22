@@ -318,5 +318,14 @@ module.exports = {
         "module": false,
         "clearImmediate": false,
         "setImmediate": false
-    }
+    },
+    devServer: {
+        publicPath: "/",
+        host: "ntest.29cm.co.kr",
+        overlay: true,
+        port: 8080,
+        stats: "errors-only",
+        historyApiFallback: true,
+    },
+    watch: true
 };

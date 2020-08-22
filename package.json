@@ -10,6 +10,7 @@
     "serve": "node ./scripts/run-tool.js serve --interactive",
     "build:loc": "node ./scripts/run-tool.js build",
     "build:webpack": "node ./scripts/run-tool.js build-webpack",
+    "serve:webpack": "node ./scripts/run-tool.js serve-webpack",
     "build:dll": "node ./scripts/run-tool.js build-dll",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
